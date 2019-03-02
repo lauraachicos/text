@@ -14,7 +14,7 @@ def textParse(fileName1, fileName2):
     words1= [x.lower() for x in words1] # make case insensitive
     words1 = [x.translate(string.maketrans("",""),string.punctuation) for x in words1] #remove punctuation
     words1 = filter(None, words1) #filter empty strings from list array
-
+    
     # 2nd text file
     text2 = open(fileName2,'r')
     words2 = ((text2.read()).split()) # Create word array
@@ -37,11 +37,12 @@ def textParse(fileName1, fileName2):
         freq1.append(words1.count(master[i]))
         freq2.append(words2.count(master[i]))
   
+    # normalize
+    freq1 = freq1/np.linalg.norm(freq1)
+    freq2 = freq2/np.linalg.norm(freq2)
     # Find similarity
     similarity = float(np.dot(freq1,freq2)) # dot product
-    normDenom = float(len(freq1))
-    norm = round((similarity/normDenom),2) # normalize
-    print('Similarity between the two files is {norm}.'.format(norm = norm))
+    print('Similarity between the two files is {similarity}.'.format(similarity = similarity))
 
 # Call function
-textParse("scott.txt","zelda.txt")
+textParse("book1.txt","book2.txt")
