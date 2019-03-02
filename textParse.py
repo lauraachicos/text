@@ -6,7 +6,9 @@
 def textParse(fileName1, fileName2):
     import numpy as np
     import string
+    import time
 
+    start = time.time()
     # Read from Text File - need to make really large texts
     # 1st text file
     text1 = open(fileName1,'r')
@@ -44,5 +46,7 @@ def textParse(fileName1, fileName2):
     similarity = float(np.dot(freq1,freq2)) # dot product
     print('Similarity between the two files is {similarity}.'.format(similarity = similarity))
 
+    end = time.time()
+    print('Script Execution Time: {time} seconds'.format(time = end-start))
 # Call function
 textParse("book1.txt","book2.txt")
