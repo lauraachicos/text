@@ -1,5 +1,11 @@
-This code is for Statistical Thinking and Data Analysis (Spring 2019). 
-The functions reads in two .txt files and creates a list array from the text that is case-insensitive and ignores punctuation. 
+Statistical Thinking and Data Analysis (Spring 2019). 
+
+To run, simply run "python textParse.py" in the same file path location as where the two example .txt files are saved.
+The current execution time is 21.9 seconds.
+
+_____
+The function reads in two .txt files and creates a list array from the text that is case-insensitive and ignores punctuation. 
 A new vector is created containing all the unique words in the combined texts.
 Then there is a corresponding vector with the frequency of unique words from each individual text.
 The dot product of these two new vectors is taken to compute the similarity between the texts.
+
